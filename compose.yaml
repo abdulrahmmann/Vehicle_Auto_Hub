@@ -1,0 +1,7 @@
+﻿services:
+  vehicle_autohub:
+    image: vehicle_autohub
+    build:
+      context: .
+      dockerfile: Vehicle_AutoHub/Dockerfile
+
