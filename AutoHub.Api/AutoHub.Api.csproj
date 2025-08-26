@@ -16,4 +16,10 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\AutoHub.Application\AutoHub.Application.csproj" />
+      <ProjectReference Include="..\AutoHub.Domain\AutoHub.Domain.csproj" />
+      <ProjectReference Include="..\AutoHub.Infrastructure\AutoHub.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>

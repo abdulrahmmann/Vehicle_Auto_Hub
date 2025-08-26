@@ -7,4 +7,8 @@
         <RootNamespace>VehicleAutoHub.Infrastructure</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\AutoHub.Domain\AutoHub.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
