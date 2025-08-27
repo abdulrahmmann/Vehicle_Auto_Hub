@@ -9,9 +9,9 @@ public class CategoryConfiguration: BaseEntityConfiguration<Category>
         // Table_Name, Index, PK_Name
         builder.ToTable("Categories");
         
-        builder.Property(m => m.Id).HasColumnName("PK_Category_Id");
-        
         builder.HasIndex(m => m.Name);
+        
+        builder.Property(m => m.Id).HasColumnName("PK_Category_Id");
         
         
         // Columns_Name_Length
