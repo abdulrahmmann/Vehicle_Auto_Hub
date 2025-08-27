@@ -16,13 +16,15 @@ public class Body: Aggregate<int>
     }
     
     #region Create Body
-    public static void CreateBody(string name)
+    public static Body CreateBody(string name)
     {
         ArgumentException.ThrowIfNullOrEmpty(name);
         
         var body = new Body { Name = name };
         
         body.AddDomainEvent(new BodyCreatedEvent(body));
+
+        return body;
     }
     #endregion
 
