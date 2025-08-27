@@ -4,7 +4,7 @@ public class TransmissionType: Aggregate<int>
 {
     public string Name { get; private set; } = null!;
     
-    // public ICollection<Vehicle> VehiclesCollection { get; private set; } = new List<Vehicle>();
+    public ICollection<Vehicle> VehiclesCollection { get; private set; } = new List<Vehicle>();
 
     private TransmissionType() { }
 

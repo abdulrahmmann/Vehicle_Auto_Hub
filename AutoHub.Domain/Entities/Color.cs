@@ -11,7 +11,7 @@ public class Color: Aggregate<int>
     public bool IsActive { get; private set; } 
     
     // Vehicle & Color -> ONE_TO_MANY
-    // public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
+    public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
 
     private Color() { }
 

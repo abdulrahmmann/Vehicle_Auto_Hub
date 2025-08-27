@@ -12,10 +12,10 @@ public class Model: Aggregate<int>
     public Make Make { get; private set; } = null!;
     
     // Model & SubModels -> ONE_TO_MANY 
-    // public ICollection<SubModel> SubModelsCollection { get; private set; } = new  List<SubModel>();
+    public ICollection<SubModel> SubModelsCollection { get; private set; } = new  List<SubModel>();
     
     // Vehicle & Model -> ONE_TO_MANY
-    // public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
+    public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
 
     private Model() { }
 

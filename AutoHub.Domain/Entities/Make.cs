@@ -7,10 +7,10 @@ public class Make: Aggregate<int>
     // FOREIGN KEYS && NAVIGATIONS
     
     // Makes & Model -> ONE_TO_MANY 
-    // public ICollection<Model> ModelsCollection { get; private set; } = new List<Model>();
+    public ICollection<Model> ModelsCollection { get; private set; } = new List<Model>();
     
     // Vehicle & Makes -> ONE_TO_MANY
-    // public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
+    public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
 
     private Make() { }
 

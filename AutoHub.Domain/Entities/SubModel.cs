@@ -11,7 +11,7 @@ public class SubModel: Aggregate<int>
     public Model Model { get; private set; } = null!;
     
     // Vehicle & SubModel -> ONE_TO_MANY
-    // public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
+    public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
 
     private SubModel() { }
 

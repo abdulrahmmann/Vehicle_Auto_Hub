@@ -6,7 +6,7 @@ public class Body: Aggregate<int>
     // FOREIGN KEYS && NAVIGATIONS
     
     // Vehicle & Body -> ONE_TO_MANY
-    // public ICollection<Vehicle> VehiclesCollection { get; private set; } = new List<Vehicle>();
+    public ICollection<Vehicle> VehiclesCollection { get; private set; } = new List<Vehicle>();
 
     private Body() { }
 

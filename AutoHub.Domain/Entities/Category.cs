@@ -8,7 +8,7 @@ public class Category: Aggregate<int>
 
     
     // Vehicle & Category -> ONE_TO_MANY
-    // public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
+    public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
 
     private Category() {}
     

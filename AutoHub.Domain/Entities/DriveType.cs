@@ -7,7 +7,7 @@ public class DriveType: Aggregate<int>
     // FOREIGN KEYS && NAVIGATIONS
     
     // Vehicle & DriveType -> ONE_TO_MANY
-    // public ICollection<Vehicle> VehiclesCollection { get; private set; } = new List<Vehicle>();
+    public ICollection<Vehicle> VehiclesCollection { get; private set; } = new List<Vehicle>();
 
     private DriveType() { }
 
