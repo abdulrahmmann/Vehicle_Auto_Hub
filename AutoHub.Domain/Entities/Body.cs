@@ -8,6 +8,14 @@ public class Body: Aggregate<int>
     // Vehicle & Body -> ONE_TO_MANY
     // public ICollection<Vehicle> VehiclesCollection { get; private set; } = new List<Vehicle>();
 
+    private Body() { }
+
+    public Body(string name)
+    {
+        Name = name;
+    }
+    
+    #region Create Body
     public static void CreateBody(string name)
     {
         ArgumentException.ThrowIfNullOrEmpty(name);
@@ -16,7 +24,9 @@ public class Body: Aggregate<int>
         
         body.AddDomainEvent(new BodyCreatedEvent(body));
     }
+    #endregion
 
+    #region Update Body
     public void UpdateBody(string name)
     {
         ArgumentException.ThrowIfNullOrEmpty(name);
@@ -28,7 +38,9 @@ public class Body: Aggregate<int>
             AddDomainEvent(new BodyNameChangedEvent(this));
         }
     }
+    #endregion
 
+    #region Soft Delete Body
     public void SoftDeleteBody()
     {
         if (!this.IsDeleted) // false
@@ -37,7 +49,9 @@ public class Body: Aggregate<int>
             AddDomainEvent(new BodyDeletedEvent(this));
         }
     }
-    
+    #endregion
+
+    #region Restore Deleted Body
     public void RestoreDeletedBody()
     {
         if (this.IsDeleted) // true
@@ -46,4 +60,5 @@ public class Body: Aggregate<int>
             AddDomainEvent(new BodyDeletedEvent(this));
         }
     }
+    #endregion
 }
