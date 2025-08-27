@@ -43,22 +43,20 @@ public class Body: Aggregate<int>
     #region Soft Delete Body
     public void SoftDeleteBody()
     {
-        if (!this.IsDeleted) // false
-        {
-            this.IsDeleted = !this.IsDeleted;
-            AddDomainEvent(new BodyDeletedEvent(this));
-        }
+        if (this.IsDeleted) return; // false
+        
+        this.IsDeleted = !this.IsDeleted;
+        AddDomainEvent(new BodyDeletedEvent(this));
     }
     #endregion
-
+    
     #region Restore Deleted Body
     public void RestoreDeletedBody()
     {
-        if (this.IsDeleted) // true
-        {
-            this.IsDeleted = !this.IsDeleted;
-            AddDomainEvent(new BodyDeletedEvent(this));
-        }
+        if (!this.IsDeleted) return; // true
+        
+        this.IsDeleted = !this.IsDeleted;
+        AddDomainEvent(new BodyRestoredEvent(this));
     }
     #endregion
 }
