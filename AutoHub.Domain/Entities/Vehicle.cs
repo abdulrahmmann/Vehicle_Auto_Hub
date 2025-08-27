@@ -1,4 +1,6 @@
-﻿namespace VehicleAutoHub.Domain.Entities;
+﻿using VehicleAutoHub.Domain.IdentityEntities;
+
+namespace VehicleAutoHub.Domain.Entities;
 
 public class Vehicle: Aggregate<int>
 {
@@ -66,11 +68,12 @@ public class Vehicle: Aggregate<int>
     
     // Vehicle & User -> ONE_TO_MANY 
     public int UserId { get; private set; }
-    // public ApplicationUser User { get; private set; } = null!;
+    public ApplicationUser User { get; private set; } = null!;
     
     public ICollection<VehicleFeature> VehicleFeatures { get; private set; } = new List<VehicleFeature>();
     
-    public ICollection<string> VehicleImages { get; private set; } = new List<string>();
+    public ICollection<VehicleImage> VehicleImages { get; private set; } = new List<VehicleImage>();
+
 
 
     #region Create Vehicle
@@ -78,7 +81,7 @@ public class Vehicle: Aggregate<int>
         string name, short year, string engine, short engineCc, byte engineCylinders,
         decimal engineLiterDisplay, byte numDoors, string description,  int bodyId, int driveTypeId, int fuelTypeId,
         int makeId, int modelId,int subModelId, int colorId, int categoryId, int transmissionTypeId, int userId,
-        ICollection<VehicleFeature>? vehicleFeatures, ICollection<string>? vehicleImages) 
+        ICollection<VehicleFeature>? vehicleFeatures, ICollection<VehicleImage>? vehicleImages) 
     {
         ArgumentException.ThrowIfNullOrEmpty(name);
         ArgumentException.ThrowIfNullOrEmpty(engine);
@@ -105,7 +108,7 @@ public class Vehicle: Aggregate<int>
             TransmissionTypeId = transmissionTypeId,
             UserId = userId,
             VehicleFeatures = vehicleFeatures ?? new List<VehicleFeature>(),
-            VehicleImages = vehicleImages ?? new List<string>()
+            VehicleImages = vehicleImages ?? new List<VehicleImage>()
         };
 
         vehicle.AddDomainEvent(new VehicleCreatedEvent(vehicle));
