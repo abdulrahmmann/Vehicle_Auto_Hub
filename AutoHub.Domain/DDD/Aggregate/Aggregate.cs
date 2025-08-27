@@ -1,7 +1,4 @@
-﻿using VehicleAutoHub.Domain.Common;
-using VehicleAutoHub.Domain.DomainEvents;
-
-namespace VehicleAutoHub.Domain.Aggregate;
+﻿namespace VehicleAutoHub.Domain.DDD.Aggregate;
 
 public abstract class Aggregate<T>: Entity<T>, IAggregate<T>
 {

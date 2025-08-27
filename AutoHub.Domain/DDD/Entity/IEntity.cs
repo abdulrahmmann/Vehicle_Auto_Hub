@@ -1,4 +1,4 @@
-﻿namespace VehicleAutoHub.Domain.Common;
+﻿namespace VehicleAutoHub.Domain.DDD.Entity;
 
 public interface IEntity<T>: IEntity
 {
@@ -14,4 +14,6 @@ public interface IEntity
     public DateTime? LastModified { get; set; }
     
     public string? LastModifiedBy { get; set; }
+    
+    public bool IsDeleted { get; set; }
 }

@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace VehicleAutoHub.Domain.DomainEvents;
+﻿namespace VehicleAutoHub.Domain.DDD.DomainEvents;
 
 public interface IDomainEvent: INotification
 {
