@@ -1,6 +1,4 @@
-﻿using DriveType = VehicleAutoHub.Domain.Entities.DriveType;
-
-namespace VehicleAutoHub.Infrastructure.Configurations;
+﻿namespace VehicleAutoHub.Infrastructure.Configurations;
 
 public class DriveTypeConfiguration: BaseEntityConfiguration<DriveType>
 {

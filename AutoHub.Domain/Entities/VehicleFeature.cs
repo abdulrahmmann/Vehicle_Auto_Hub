@@ -6,6 +6,8 @@ public class VehicleFeature
 
     public int VehicleId { get; private set; }
     public int FeatureId { get; private set; }
+
+    public bool IsDeleted { get; private set; } = false;
     
     public Feature Feature { get; private set; } = null!;
 
