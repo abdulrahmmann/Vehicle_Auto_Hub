@@ -22,8 +22,6 @@ public class Body: Aggregate<int>
         
         var body = new Body { Name = name };
         
-        body.AddDomainEvent(new BodyCreatedEvent(body));
-
         return body;
     }
     #endregion
@@ -34,11 +32,6 @@ public class Body: Aggregate<int>
         ArgumentException.ThrowIfNullOrEmpty(name);
         
         Name = name;
-
-        if (Name != name)
-        {
-            AddDomainEvent(new BodyNameChangedEvent(this));
-        }
     }
     #endregion
 
@@ -48,7 +41,6 @@ public class Body: Aggregate<int>
         if (this.IsDeleted) return; // false
         
         this.IsDeleted = !this.IsDeleted;
-        AddDomainEvent(new BodyDeletedEvent(this));
     }
     #endregion
     
@@ -58,7 +50,6 @@ public class Body: Aggregate<int>
         if (!this.IsDeleted) return; // true
         
         this.IsDeleted = !this.IsDeleted;
-        AddDomainEvent(new BodyRestoredEvent(this));
     }
     #endregion
 }
