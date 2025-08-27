@@ -4,7 +4,7 @@ public class Feature: Aggregate<int>
 {
     public string Name { get; private set; } = null!;
     
-    // public ICollection<VehicleFeature> VehicleFeatures { get; private set; } = new List<VehicleFeature>();
+    public ICollection<VehicleFeature> VehicleFeatures { get; private set; } = new List<VehicleFeature>();
 
     private Feature() { }
 
