@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Design;
-
-namespace VehicleAutoHub.Infrastructure.Context;
+﻿namespace VehicleAutoHub.Infrastructure.Context;
 
 public class ApplicationDbContextFactory: IDesignTimeDbContextFactory<ApplicationDbContext>
 {

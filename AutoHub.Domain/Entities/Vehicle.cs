@@ -72,7 +72,8 @@ public class Vehicle: Aggregate<int>
     
     public ICollection<VehicleFeature> VehicleFeatures { get; private set; } = new List<VehicleFeature>();
     
-    public ICollection<string> VehicleImages { get; private set; } = new List<string>();
+    public List<string> VehicleImages { get; private set; } = [];
+
 
 
 
@@ -81,7 +82,7 @@ public class Vehicle: Aggregate<int>
         string name, short year, string engine, short engineCc, byte engineCylinders,
         decimal engineLiterDisplay, byte numDoors, string description,  int bodyId, int driveTypeId, int fuelTypeId,
         int makeId, int modelId,int subModelId, int colorId, int categoryId, int transmissionTypeId, int userId,
-        ICollection<VehicleFeature>? vehicleFeatures, ICollection<string>? vehicleImages) 
+        ICollection<VehicleFeature>? vehicleFeatures, List<string>? vehicleImages) 
     {
         ArgumentException.ThrowIfNullOrEmpty(name);
         ArgumentException.ThrowIfNullOrEmpty(engine);

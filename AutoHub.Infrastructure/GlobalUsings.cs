@@ -6,3 +6,6 @@ global using VehicleAutoHub.Domain.Entities;
 global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 global using VehicleAutoHub.Domain.IdentityEntities;
 global using DriveType = VehicleAutoHub.Domain.Entities.DriveType;
+
+global using System.Reflection;
+global using Microsoft.EntityFrameworkCore.Design;

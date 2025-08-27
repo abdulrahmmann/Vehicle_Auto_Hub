@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace VehicleAutoHub.Infrastructure.Context;
+﻿namespace VehicleAutoHub.Infrastructure.Context;
 
 public class ApplicationDbContext: IdentityDbContext<ApplicationUser, ApplicationRole, int>
 {

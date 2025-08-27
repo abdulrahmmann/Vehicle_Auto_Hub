@@ -1,4 +1,6 @@
-﻿namespace VehicleAutoHub.Infrastructure.Configurations;
+﻿using VehicleAutoHub.Domain;
+
+namespace VehicleAutoHub.Infrastructure.Configurations;
 
 public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
 {
@@ -125,5 +127,9 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .WithMany(u => u.VehiclesCollection)
             .HasForeignKey(v => v.UserId)
             .HasConstraintName("FK_Vehicle_User");
+
+        builder.Property(v => v.VehicleImages)
+            .HasConversion<ImagesValueConverter>()
+            .HasColumnType("nvarchar(max)");
     }
 }
