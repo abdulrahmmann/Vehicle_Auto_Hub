@@ -1,3 +1,6 @@
+using VehicleAutoHub.Application;
+using VehicleAutoHub.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +10,12 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+
+// Register Layers Dependencies
+builder.Services
+    .AddInfrastructureDependencies(builder.Configuration)
+    .AddApplicationDependencies(builder.Configuration);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
