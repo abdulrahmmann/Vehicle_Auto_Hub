@@ -72,7 +72,7 @@ public class Vehicle: Aggregate<int>
     
     public ICollection<VehicleFeature> VehicleFeatures { get; private set; } = new List<VehicleFeature>();
     
-    public ICollection<VehicleImage> VehicleImages { get; private set; } = new List<VehicleImage>();
+    public ICollection<string> VehicleImages { get; private set; } = new List<string>();
 
 
 
@@ -81,7 +81,7 @@ public class Vehicle: Aggregate<int>
         string name, short year, string engine, short engineCc, byte engineCylinders,
         decimal engineLiterDisplay, byte numDoors, string description,  int bodyId, int driveTypeId, int fuelTypeId,
         int makeId, int modelId,int subModelId, int colorId, int categoryId, int transmissionTypeId, int userId,
-        ICollection<VehicleFeature>? vehicleFeatures, ICollection<VehicleImage>? vehicleImages) 
+        ICollection<VehicleFeature>? vehicleFeatures, ICollection<string>? vehicleImages) 
     {
         ArgumentException.ThrowIfNullOrEmpty(name);
         ArgumentException.ThrowIfNullOrEmpty(engine);
@@ -108,7 +108,7 @@ public class Vehicle: Aggregate<int>
             TransmissionTypeId = transmissionTypeId,
             UserId = userId,
             VehicleFeatures = vehicleFeatures ?? new List<VehicleFeature>(),
-            VehicleImages = vehicleImages ?? new List<VehicleImage>()
+            VehicleImages = vehicleImages ?? new List<string>()
         };
 
         vehicle.AddDomainEvent(new VehicleCreatedEvent(vehicle));

@@ -125,11 +125,5 @@ public class VehicleConfiguration: BaseEntityConfiguration<Vehicle>
             .WithMany(u => u.VehiclesCollection)
             .HasForeignKey(v => v.UserId)
             .HasConstraintName("FK_Vehicle_User");
-        
-        builder.OwnsMany(a => a.VehicleImages, vi =>
-        {
-            vi.Property(a => a.ImageUrl).HasMaxLength(200);
-            vi.Property(a => a.IsPrimary).HasDefaultValue(false);
-        });
     }
 }
