@@ -9,3 +9,7 @@ global using DriveType = VehicleAutoHub.Domain.Entities.DriveType;
 
 global using System.Reflection;
 global using Microsoft.EntityFrameworkCore.Design;
+
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using MediatR;
+global using VehicleAutoHub.Domain.DDD.Aggregate;

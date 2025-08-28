@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VehicleAutoHub.Infrastructure.Context;
+using VehicleAutoHub.Infrastructure.Interceptors;
 
 namespace VehicleAutoHub.Infrastructure;
 
@@ -9,9 +11,15 @@ public static class ModuleInfrastructure
 {
     public static IServiceCollection AddInfrastructureDependencies(this IServiceCollection services, IConfiguration configuration)
     {
-        // Register DbContext
-        services.AddDbContext<ApplicationDbContext>(options =>
+        // REGISTER INTERCEPTORS
+        services.AddScoped<ISaveChangesInterceptor, AuditSaveChangesInterceptor>();
+        services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
+        
+        // REGISTER DB CONTEXT
+        services.AddDbContext<ApplicationDbContext>((sp, options) =>
         {
+            options.AddInterceptors(sp.GetService<ISaveChangesInterceptor>()!);
+            
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
         
@@ -43,5 +51,22 @@ public static class ModuleInfrastructure
         // REGISTER REPOSITORIES  
         
         return services;
+    }
+
+    public static IApplicationBuilder UseInfrastructure(this IApplicationBuilder app)
+    {
+        InitializeDatabase(app).GetAwaiter().GetResult();
+
+        return app;
+    }
+    
+    private static async Task InitializeDatabase(this IApplicationBuilder app)
+    {
+        using var scope = app.ApplicationServices.CreateScope();
+
+        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        
+        await context.Database.MigrateAsync();
+
     }
 }
