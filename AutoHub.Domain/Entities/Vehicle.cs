@@ -1,4 +1,5 @@
-﻿using VehicleAutoHub.Domain.IdentityEntities;
+﻿using VehicleAutoHub.Domain.Events.VehicleEvents;
+using VehicleAutoHub.Domain.IdentityEntities;
 
 namespace VehicleAutoHub.Domain.Entities;
 
