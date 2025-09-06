@@ -1,12 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using VehicleAutoHub.Infrastructure.Context;
-using VehicleAutoHub.Infrastructure.Interceptors;
-using VehicleAutoHub.Infrastructure.UOF;
-
-namespace VehicleAutoHub.Infrastructure;
+﻿namespace VehicleAutoHub.Infrastructure;
 
 public static class ModuleInfrastructure
 {
@@ -49,6 +41,8 @@ public static class ModuleInfrastructure
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         
         // REGISTER GENERIC REPOSITORY  
+        
+        services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         
         // REGISTER REPOSITORIES  
         
