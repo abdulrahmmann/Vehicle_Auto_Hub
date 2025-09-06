@@ -1,4 +1,6 @@
-﻿namespace VehicleAutoHub.Domain.Entities;
+﻿using VehicleAutoHub.Domain.Events.MakeEvents;
+
+namespace VehicleAutoHub.Domain.Entities;
 
 public class Make: Aggregate<int>
 {
@@ -11,9 +13,9 @@ public class Make: Aggregate<int>
     
     // Vehicle & Makes -> ONE_TO_MANY
     public ICollection<Vehicle> VehiclesCollection { get; private set; }  = new List<Vehicle>();
-
+    
     private Make() { }
-
+    
     public Make(string name)
     {
         Name = name;
@@ -26,6 +28,8 @@ public class Make: Aggregate<int>
 
         var make = new Make { Name = name };
         
+        make.AddDomainEvent(new MakeCreatedEvent(make));
+        
         return make;
     }
     #endregion
@@ -36,6 +40,8 @@ public class Make: Aggregate<int>
         ArgumentException.ThrowIfNullOrEmpty(name);
         
         Name = name ?? Name;
+        
+        AddDomainEvent(new MakeUpdatedEvent(this));
     }
     #endregion
     
@@ -45,6 +51,8 @@ public class Make: Aggregate<int>
         if (this.IsDeleted) return; // false
         
         this.IsDeleted = !this.IsDeleted;
+        
+        AddDomainEvent(new MakeRestoredEvent(this));
     }
     #endregion
     
@@ -54,6 +62,8 @@ public class Make: Aggregate<int>
         if (!this.IsDeleted) return; // true
         
         this.IsDeleted = !this.IsDeleted;
+        
+        AddDomainEvent(new MakeRestoredEvent(this));
     }
     #endregion
 }

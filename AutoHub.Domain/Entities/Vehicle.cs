@@ -75,9 +75,7 @@ public class Vehicle: Aggregate<int>
     
     public List<string> VehicleImages { get; private set; } = [];
 
-
-
-
+    
     #region Create Vehicle
     public static Vehicle CreateVehicle(
         string name, short year, string engine, short engineCc, byte engineCylinders,
