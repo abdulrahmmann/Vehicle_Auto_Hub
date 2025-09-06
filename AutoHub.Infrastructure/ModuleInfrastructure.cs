@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VehicleAutoHub.Infrastructure.Context;
 using VehicleAutoHub.Infrastructure.Interceptors;
+using VehicleAutoHub.Infrastructure.UOF;
 
 namespace VehicleAutoHub.Infrastructure;
 
@@ -45,6 +46,7 @@ public static class ModuleInfrastructure
         
         
         // REGISTER UNIT OF WORK    
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         
         // REGISTER GENERIC REPOSITORY  
         
