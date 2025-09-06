@@ -8,9 +8,7 @@ public static class ModuleApplication
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         
         // Register JWT Services
-        services.AddScoped<IGenerateTokenService, GenerateTokenService>();
-        services.AddScoped<IGenerateRefreshTokenService, GenerateRefreshTokenService>();
-        services.AddScoped<IGeneratePrincipalFromJwtTokenService, GeneratePrincipalFromJwtTokenService>();
+        
         
         // Register FLUENT VALIDATION
         // services.AddValidatorsFromAssemblyContaining<CategoryValidator>();

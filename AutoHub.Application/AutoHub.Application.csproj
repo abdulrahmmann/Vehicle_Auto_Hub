@@ -22,10 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Makes\Commands\" />
-      <Folder Include="Features\Makes\DTOs\" />
-      <Folder Include="Features\Makes\Queries\" />
-      <Folder Include="Features\Makes\Validations\" />
+      <Folder Include="Constants\" />
     </ItemGroup>
 
 </Project>

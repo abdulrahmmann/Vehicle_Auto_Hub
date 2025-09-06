@@ -1,22 +1,5 @@
 ﻿global using System.Net;
 global using System.Text.Json.Serialization;
-
-global using Microsoft.AspNetCore.Identity;
 global using Microsoft.Extensions.DependencyInjection;
-global using Microsoft.Extensions.Logging;
-global using VehicleAutoHub.Application.Constants;
-global using VehicleAutoHub.Domain.IdentityEntities;
-
-global using VehicleAutoHub.Application.Common;
-global using System.IdentityModel.Tokens.Jwt;
-global using System.Security.Claims;
-global using System.Text;
 global using Microsoft.Extensions.Configuration;
-global using Microsoft.IdentityModel.Tokens;
-global using System.Security.Cryptography;
-global using VehicleAutoHub.Application.Services.GenerateRefreshToken;
-
 global using System.Reflection;
-global using FluentValidation;
-global using VehicleAutoHub.Application.Services.GeneratePrincipalJwtToken;
-global using VehicleAutoHub.Application.Services.GenerateToken;
