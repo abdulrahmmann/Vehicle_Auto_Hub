@@ -45,6 +45,7 @@ public static class ModuleInfrastructure
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         
         // REGISTER REPOSITORIES  
+        services.AddScoped<IMakesRepository, MakesRepository>();
         
         return services;
     }

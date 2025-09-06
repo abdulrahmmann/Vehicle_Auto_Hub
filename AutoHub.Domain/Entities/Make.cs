@@ -22,15 +22,13 @@ public class Make: Aggregate<int>
     }
     
     #region Create Make
-    public static Make CreateMake(string name)
+    public void CreateMake(string name)
     {
         ArgumentException.ThrowIfNullOrEmpty(name);
 
         var make = new Make { Name = name };
         
         make.AddDomainEvent(new MakeCreatedEvent(make));
-        
-        return make;
     }
     #endregion
     
